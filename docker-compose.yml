@@ -4,6 +4,8 @@ services:
     image: "cyebukayire/work:client"
     mem_limit: 128m
     hostname: client
+    ports:
+      - "3000:3000"
   server:
     image: "cyebukayire/work:server"
     mem_limit: 128m
@@ -16,6 +18,9 @@ services:
       - PGDATABASE=$PGDATABASE
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
+    ports:
+      - "5000:5000"
+
   worker:
     image: "cyebukayire/work:worker"
     mem_limit: 128m
